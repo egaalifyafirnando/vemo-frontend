@@ -1,0 +1,141 @@
+<template>
+    <header class="section-header">
+        <section class="header-main border-bottom">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-md-3 col-4">
+                        <router-link
+                            :to="{ name: 'home' }"
+                            class="text-decoration-none"
+                            data-abc="true"
+                        >
+                            <span class="logo">
+                                VEMO
+                            </span>
+                        </router-link>
+                    </div>
+                    <div class="col-md-5 d-none d-md-block">
+                        <form class="search-wrap">
+                            <div class="input-group w-100">
+                                <input
+                                    type="text"
+                                    class="form-control search-form"
+                                    style="width:55%;border: 1px solid #ffffff"
+                                    name="q"
+                                    placeholder="mau beli apa hari ini ?"
+                                />
+                                <div class="input-group-append">
+                                    <button
+                                        class="btn search-button"
+                                        type="submit"
+                                    >
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4 col-8">
+                        <div class="d-flex justify-content-end">
+                            <div class="cart-header">
+                                <div class="cart-header">
+                                    <router-link
+                                        :to="{ name: 'cart' }"
+                                        class="btn btn-light search-button btn-md rounded-pill"
+                                        style="color: #ffffff;background-color: #b91646;border-color: #ffffff;"
+                                    >
+                                        <i class="fa fa-shopping-cart"></i>
+                                        {{ cartCount }} | Rp.
+                                        {{ moneyFormat(cartTotal) }}
+                                    </router-link>
+                                </div>
+                            </div>
+
+                            <div class="account">
+                                <router-link
+                                    :to="{ name: 'login' }"
+                                    v-if="!isLoggedIn"
+                                    class="btn search-button btn-md ml-4 border-0"
+                                    style="padding: 0 !important;
+                                    background-color: #B91646;
+                                    "
+                                >
+                                    <i
+                                        class="fa fa-user-circle"
+                                        style="color: white;
+                                        font-size: 2.2rem"
+                                    ></i>
+                                </router-link>
+                                <router-link
+                                    :to="{ name: 'dashboard' }"
+                                    v-else
+                                    class="btn search-button btn-md ml-4 border-0"
+                                    style="padding: 0 !important;
+                                    background-color: #B91646;"
+                                >
+                                    <i
+                                        class="fa fa-store-alt"
+                                        style="color: white;
+                                        font-size: 2rem"
+                                    ></i>
+                                </router-link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+</template>
+
+<script>
+import { computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
+export default {
+    setup() {
+        //store vuex
+        const store = useStore();
+
+        //computed
+        const isLoggedIn = computed(() => {
+            //get getter "isLoggedIn" dari module "auth"
+            return store.getters['auth/isLoggedIn'];
+        });
+
+        //cart count
+        const cartCount = computed(() => {
+            //get getter "cartCount" dari module "auth"
+            return store.getters['cart/cartCount'];
+        });
+
+        //cart total
+        const cartTotal = computed(() => {
+            //get getter "cartTotal" dari module "auth"
+            return store.getters['cart/cartTotal'];
+        });
+
+        //mounted
+        onMounted(() => {
+            //check state token
+            const token = store.state.auth.token;
+
+            if (!token) {
+                return;
+            }
+
+            //saat mounted, akan memanggil action "cartCount" di module "cart"
+            store.dispatch('cart/cartCount');
+
+            //saat mounted, akan memanggil action "cartTotal" di module "cart"
+            store.dispatch('cart/cartTotal');
+        });
+
+        return {
+            store,
+            isLoggedIn,
+            cartTotal,
+            cartCount,
+        };
+    },
+};
+</script>
