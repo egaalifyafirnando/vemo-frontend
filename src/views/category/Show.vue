@@ -7,9 +7,7 @@
                 class="col-md-3 col-6 mb-3"
             >
                 <div class="card h-100 border-0 shadow rounded-md">
-                    <span v-if="product.discount > 0" class="ribbon">{{
-                        product.discount
-                    }}</span>
+                    <span v-if="product.discount > 0" class="ribbon"></span>
                     <div class="card-img">
                         <img
                             :src="product.image"
@@ -36,9 +34,9 @@
                         >
                             <s>Rp. {{ moneyFormat(product.price) }}</s>
                             <span
-                                style="background-color: #105652; float:right"
-                                class="badge badge-pill badge-success text-white"
-                                >DISCOUNT {{ product.discount }} %</span
+                                style="background-color: #105652;"
+                                class="badge badge-pill badge-success text-white float-md-right"
+                                >{{ product.discount }}% OFF</span
                             >
                         </div>
 
@@ -48,7 +46,7 @@
 
                         <div
                             class="price font-weight-bold mt-3"
-                            style="color: #105652;font-size:20px;"
+                            style="color: #105652;font-size:1.1rem;"
                         >
                             Rp.
                             {{ moneyFormat(calculateDiscount(product)) }}
@@ -60,8 +58,8 @@
                             }"
                             class="btn btn-light btn-md mt-3 btn-block shadow-md text-white rounded-pill"
                             style="background: #b91646;"
-                            >LIHAT PRODUK
-                        </router-link>
+                            >Detail</router-link
+                        >
                     </div>
                 </div>
             </div>

@@ -41,8 +41,8 @@
                                 <div class="cart-header">
                                     <router-link
                                         :to="{ name: 'cart' }"
-                                        class="btn btn-light search-button btn-md rounded-pill"
-                                        style="color: #ffffff;background-color: #b91646;border-color: #ffffff;"
+                                        class="badge badge-pill mt-1"
+                                        style="color: #b91646;background-color: #fff;border-color: #ffffff; line-height: 20px; cursor: pointer;"
                                     >
                                         <i class="fa fa-shopping-cart"></i>
                                         {{ cartCount }} | Rp.
@@ -55,28 +55,25 @@
                                 <router-link
                                     :to="{ name: 'login' }"
                                     v-if="!isLoggedIn"
-                                    class="btn search-button btn-md ml-4 border-0"
-                                    style="padding: 0 !important;
-                                    background-color: #B91646;
-                                    "
+                                    class="ml-3"
+                                    style="background-color: #B91646;"
                                 >
                                     <i
                                         class="fa fa-user-circle"
                                         style="color: white;
-                                        font-size: 2.2rem"
+                                        font-size: 1.7rem; line-height: 33px"
                                     ></i>
                                 </router-link>
                                 <router-link
                                     :to="{ name: 'dashboard' }"
                                     v-else
-                                    class="btn search-button btn-md ml-4 border-0"
-                                    style="padding: 0 !important;
-                                    background-color: #B91646;"
+                                    class="ml-3"
+                                    style="background-color: #B91646;"
                                 >
                                     <i
                                         class="fa fa-store-alt"
                                         style="color: white;
-                                        font-size: 2rem"
+                                        font-size: 1.4rem; line-height: 33px"
                                     ></i>
                                 </router-link>
                             </div>
