@@ -6,18 +6,57 @@
             </h5>
             <hr />
             <ul class="list-group">
-                <router-link
-                    :to="{
-                        name: 'detail_category',
-                        params: { slug: category.slug },
-                    }"
-                    v-for="category in categories"
-                    :key="category.id"
-                    class="list-group-item shadow-sm font-weight-bold text-decoration-none text-dark rounded-pill"
-                >
-                    <img :src="category.image" style="width:35px" />
-                    {{ category.name }}
-                </router-link>
+                <div v-if="categories.length > 0">
+                    <router-link
+                        :to="{
+                            name: 'detail_category',
+                            params: { slug: category.slug },
+                        }"
+                        v-for="category in categories"
+                        :key="category.id"
+                        class="list-group-item shadow-sm font-weight-bold text-decoration-none text-dark rounded-pill"
+                    >
+                        <img :src="category.image" style="width:35px" />
+                        {{ category.name }}
+                    </router-link>
+                </div>
+                <div v-else>
+                    <div v-for="loader in ContentLoader" :key="loader">
+                        <div>
+                            <ContentLoader
+                                viewBox="0 0 200 130"
+                                :speed="2"
+                                primaryColor="#f3f3f3"
+                                secondaryColor="#ecebeb"
+                            >
+                                <rect
+                                    x="5"
+                                    y="2"
+                                    rx="16"
+                                    ry="16"
+                                    width="192"
+                                    height="36"
+                                />
+                                <rect
+                                    x="5"
+                                    y="45"
+                                    rx="16"
+                                    ry="16"
+                                    width="192"
+                                    height="36"
+                                />
+                                <rect
+                                    x="5"
+                                    y="88"
+                                    rx="16"
+                                    ry="16"
+                                    width="192"
+                                    height="36"
+                                />
+                            </ContentLoader>
+                        </div>
+                    </div>
+                </div>
 
                 <router-link
                     :to="{ name: 'categories' }"
@@ -30,9 +69,13 @@
 </template>
 
 <script>
+import { ContentLoader } from 'vue-content-loader'; // <-- vue content loader
 import { computed, onMounted } from 'vue';
 import { useStore } from 'vuex';
 export default {
+    components: {
+        ContentLoader,
+    },
     setup() {
         // store vuex
         const store = useStore();
@@ -49,6 +92,7 @@ export default {
 
         return {
             categories,
+            ContentLoader: 1,
         };
     },
 };
