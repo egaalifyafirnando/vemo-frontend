@@ -94,44 +94,16 @@
                             <div class="card h-100 border-0 shadow rounded-md">
                                 <div class="card-body">
                                     <content-loader
-                                        viewBox="0 0 150 200"
-                                        :speed="2"
-                                        primaryColor="#f3f3f3"
-                                        secondaryColor="#e3e3e3"
-                                    >
-                                        <rect
-                                            x="23"
-                                            y="180"
-                                            rx="10"
-                                            ry="10"
-                                            width="103"
-                                            height="19"
-                                        />
-                                        <rect
-                                            x="13"
-                                            y="144"
-                                            rx="4"
-                                            ry="4"
-                                            width="124"
-                                            height="8"
-                                        />
-                                        <rect
-                                            x="6"
-                                            y="3"
-                                            rx="8"
-                                            ry="8"
-                                            width="139"
-                                            height="136"
-                                        />
-                                        <rect
-                                            x="27"
-                                            y="159"
-                                            rx="4"
-                                            ry="4"
-                                            width="98"
-                                            height="6"
-                                        />
-                                    </content-loader>
+    viewBox="0 0 150 200"
+    :speed="2"
+    primaryColor="#f3f3f3"
+    secondaryColor="#e3e3e3"
+  >
+    <rect x="21" y="178" rx="10" ry="10" width="111" height="19" /> 
+    <rect x="7" y="149" rx="4" ry="4" width="138" height="9" /> 
+    <rect x="6" y="3" rx="8" ry="8" width="139" height="136" /> 
+    <rect x="7" y="162" rx="4" ry="4" width="71" height="8" />
+  </content-loader>
                                 </div>
                             </div>
                         </div>

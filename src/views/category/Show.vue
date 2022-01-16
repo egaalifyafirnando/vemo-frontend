@@ -82,20 +82,20 @@
                                     secondaryColor="#e3e3e3"
                                 >
                                     <rect
-                                        x="23"
-                                        y="180"
+                                        x="21"
+                                        y="178"
                                         rx="10"
                                         ry="10"
-                                        width="103"
+                                        width="111"
                                         height="19"
                                     />
                                     <rect
-                                        x="13"
-                                        y="144"
+                                        x="7"
+                                        y="149"
                                         rx="4"
                                         ry="4"
-                                        width="124"
-                                        height="8"
+                                        width="138"
+                                        height="9"
                                     />
                                     <rect
                                         x="6"
@@ -106,12 +106,12 @@
                                         height="136"
                                     />
                                     <rect
-                                        x="27"
-                                        y="159"
+                                        x="7"
+                                        y="162"
                                         rx="4"
                                         ry="4"
-                                        width="98"
-                                        height="6"
+                                        width="71"
+                                        height="8"
                                     />
                                 </content-loader>
                             </div>
