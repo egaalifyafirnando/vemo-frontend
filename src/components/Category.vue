@@ -12,7 +12,7 @@
                             name: 'detail_category',
                             params: { slug: category.slug },
                         }"
-                        v-for="category in categories"
+                        v-for="category in categories.slice(0, 4)"
                         :key="category.id"
                         class="list-group-item shadow-sm font-weight-bold text-decoration-none text-dark rounded-pill"
                     >
