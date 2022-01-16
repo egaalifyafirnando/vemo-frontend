@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid mb-5 mt-4">
+    <div class="mb-5 mt-4">
         <!-- data product -->
         <div class="col">
             <div v-if="products.length > 0" class="row">
@@ -17,16 +17,23 @@
                                 style="height: 15em;object-fit:cover;border-top-left-radius: .25rem;border-top-right-radius: .25rem;"
                             />
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" style="padding: 1rem;">
                             <router-link
                                 :to="{
                                     name: 'detail_product',
                                     params: { slug: product.slug },
                                 }"
                                 class="card-title font-weight-bold"
-                                style="font-size:1.2rem; color: #b91646;"
+                                style="font-size:1rem; color: #b91646;"
                             >
-                                {{ product.title }}
+                                <span
+                                    v-if="product.title.length < 29"
+                                    class="title-card"
+                                    >{{ product.title }}</span
+                                >
+                                <span v-else class="title-card">{{
+                                    product.title.substring(0, 29) + '...'
+                                }}</span>
                             </router-link>
 
                             <div
@@ -74,7 +81,7 @@
                         :key="loader"
                     >
                         <div class="card h-100 border-0 shadow rounded-md">
-                            <div class="card-body">
+                            <div class="card-body" style="padding: 1rem;">
                                 <content-loader
                                     viewBox="0 0 150 200"
                                     :speed="2"
@@ -204,5 +211,12 @@ export default {
     150 - 10 = 140
      */
     box-shadow: 90px -90px #770f2e;
+}
+
+/* media query title card */
+@media only screen and (min-width: 992px) {
+    .title-card {
+        font-size: 1.3rem;
+    }
 }
 </style>
