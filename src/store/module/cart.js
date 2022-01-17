@@ -161,6 +161,7 @@ const cart = {
                     city: data.city_id,
                     address: data.address,
                     grand_total: data.grandTotal,
+                    product_message: data.productMessage,
                 })
                     .then((response) => {
                         resolve(response.data);

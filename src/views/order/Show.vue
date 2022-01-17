@@ -7,10 +7,22 @@
             <div class="col-md-9 mb-4">
                 <div class="card border-0 rounded shadow">
                     <div class="card-body">
-                        <h5 class="font-weight-bold">
-                            <i class="fas fa-shopping-cart"></i>
-                            DETAIL ORDER
-                        </h5>
+                        <div class="row">
+                            <div class="col-8">
+                                <h5 class="font-weight-bold">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    DETAIL ORDER
+                                </h5>
+                            </div>
+                            <div class="col-4">
+                                <span
+                                    class="float-right d-flex text-align-right text-right justify-content-end"
+                                >
+                                    clipboard
+                                </span>
+                            </div>
+                        </div>
+
                         <hr />
                         <div class="table-responsive">
                             <table class="table table-bordered">
@@ -79,6 +91,15 @@
                                 </tr>
                                 <tr>
                                     <td>
+                                        CATATAN PESANAN
+                                    </td>
+                                    <td>:</td>
+                                    <td>
+                                        {{ detailOrder.product_message }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
                                         STATUS
                                     </td>
                                     <td>:</td>
@@ -128,10 +149,7 @@
 
                 <div class="card border-0 rounded shadow mt-4">
                     <div class="card-body">
-                        <h5>
-                            <i class="fa fa-shopping-cart"></i>
-                            DETAIL ITEM
-                        </h5>
+                        <h5><i class="fa fa-shopping-cart"></i> DETAIL ITEM</h5>
                         <hr />
                         <div
                             class="row pb-3"

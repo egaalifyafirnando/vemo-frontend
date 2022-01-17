@@ -9,7 +9,7 @@
                         </h5>
                         <hr />
                         <div
-                            class="row pb-3"
+                            class="row pb-2"
                             v-for="cart in carts"
                             :key="cart.id"
                         >
@@ -53,6 +53,22 @@
                                         <i class="fa fa-trash"></i>
                                     </button>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="form-group pb-2">
+                            <textarea
+                                class="form-control"
+                                style="border-radius: 1.5rem"
+                                id="productMessage"
+                                rows="2"
+                                placeholder="Harap tulis detail pesananmu agar tidak salah pilih yaa...&#10;contoh: Item x warna putih, Item y size XL"
+                                v-model="state.productMessage"
+                            ></textarea>
+                            <div
+                                v-if="validation.productMessage"
+                                class="mt-2 alert alert-danger rounded-pill"
+                            >
+                                Harap tulis pesananmu agar tidak salah pilih yaa
                             </div>
                         </div>
 
@@ -428,6 +444,7 @@ export default {
             courier_service: '', // <- state untuk menyimpan service kurir
             buttonCheckout: false, // <-- state button checkout
             grandTotal: 0, // <-- state untuk grand total
+            productMessage: '', // <-- pesan product
         });
 
         //define state validation
@@ -435,6 +452,7 @@ export default {
             name: false, // <-- validation name
             phone: false, // <-- validation phone
             address: false, // <-- validation address
+            productMessage: false, // <-- validation product message
         });
 
         //mounted data provinces
@@ -521,12 +539,13 @@ export default {
 
         //method/function checkout
         function checkout() {
-            //ceck apakah ada nama, phone, address dan berat produk ?
+            //check apakah ada nama, phone, address dan berat produk ?
             if (
                 state.name &&
                 state.phone &&
                 state.address &&
-                cartWeight.value
+                cartWeight.value &&
+                state.productMessage
             ) {
                 //define variable
                 let data = {
@@ -540,6 +559,7 @@ export default {
                     weight: cartWeight.value,
                     address: state.address,
                     grandTotal: state.grandTotal,
+                    productMessage: state.productMessage,
                 };
                 store
                     .dispatch('cart/checkout', data)
@@ -570,6 +590,11 @@ export default {
             //check validasi address
             if (!state.address) {
                 validation.address = true;
+            }
+
+            //check validasi productMessage
+            if (!state.productMessage) {
+                validation.productMessage = true;
             }
         }
 
