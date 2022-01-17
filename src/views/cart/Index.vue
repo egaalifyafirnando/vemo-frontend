@@ -58,7 +58,7 @@
                         <div class="form-group pb-2">
                             <textarea
                                 class="form-control"
-                                style="border-radius: 1.5rem"
+                                style="border-radius: .5rem"
                                 id="productMessage"
                                 rows="2"
                                 placeholder="Harap tulis detail pesananmu agar tidak salah pilih yaa...&#10;contoh: Item x warna putih, Item y size XL"

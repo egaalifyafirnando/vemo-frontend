@@ -6,14 +6,17 @@
             </div>
             <div class="col-md-9 mb-4">
                 <div class="card border-0 rounded shadow">
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         <h5 class="font-weight-bold">
                             <i class="fas fa-shopping-cart"></i>
                             MY ORDER
                         </h5>
                         <hr />
                         <table class="table table-striped table-bordered">
-                            <thead class="thead-dark">
+                            <thead
+                                class="text-white"
+                                style="background: #B91646"
+                            >
                                 <tr>
                                     <th scope="col">INVOICE</th>
                                     <th scope="col">FULL NAME</th>
@@ -43,7 +46,8 @@
                                                         order.snap_token,
                                                 },
                                             }"
-                                            class="btn btn-sm btn-primary"
+                                            class="btn btn-sm btn-light rounded-pill text-white"
+                                            style="background: #B91646"
                                         >
                                             DETAIL
                                         </router-link>
