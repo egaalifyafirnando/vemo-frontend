@@ -15,25 +15,26 @@
                         </router-link>
                     </div>
                     <div class="col-md-5 d-none d-md-block">
-                        <form class="search-wrap">
-                            <div class="input-group w-100">
-                                <input
-                                    type="text"
-                                    class="form-control search-form"
-                                    style="width:55%;border: 1px solid #ffffff"
-                                    name="q"
-                                    placeholder="mau beli apa hari ini ?"
-                                />
-                                <div class="input-group-append">
-                                    <button
-                                        class="btn search-button"
-                                        type="submit"
-                                    >
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </div>
+                        <div class="input-group w-100">
+                            <input
+                                type="text"
+                                v-model="keywords"
+                                class="form-control search-form"
+                                style="width:55%;border: 1px solid #ffffff"
+                                name="q"
+                                placeholder="mau beli apa hari ini ?"
+                                @keypress.enter="search"
+                            />
+                            <div class="input-group-append">
+                                <button
+                                    class="btn search-button"
+                                    @click="search"
+                                    type="submit"
+                                >
+                                    <i class="fa fa-search"></i>
+                                </button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     <div class="col-md-4 col-8">
                         <div class="d-flex justify-content-end">
@@ -86,12 +87,16 @@
 </template>
 
 <script>
-import { computed, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 export default {
     setup() {
         //store vuex
         const store = useStore();
+
+        //vue router
+        const router = useRouter();
 
         //computed
         const isLoggedIn = computed(() => {
@@ -127,11 +132,19 @@ export default {
             store.dispatch('cart/cartTotal');
         });
 
+        let keywords = ref('');
+        function search() {
+            store.dispatch('product/getSearchProduct', keywords.value);
+            router.push('/search');
+        }
+
         return {
             store,
             isLoggedIn,
             cartTotal,
             cartCount,
+            keywords,
+            search,
         };
     },
 };

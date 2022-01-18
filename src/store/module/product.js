@@ -11,7 +11,7 @@ const product = {
         products: [],
 
         // detail product
-        product: [],
+        product: {},
     },
 
     // mutations
@@ -47,6 +47,20 @@ const product = {
                 .then((response) => {
                     // commit ke mutation DETAIL_PRODUCT dengan response data
                     commit('DETAIL_PRODUCT', response.data.product);
+                })
+                .catch((error) => {
+                    // show error log dari response
+                    console.log(error);
+                });
+        },
+
+        // fitur search
+        getSearchProduct({ commit }, products) {
+            // get data product ke server
+            Api.get(`/search?q=${products}`)
+                .then((response) => {
+                    // commit ke mutation GET_PRODUCTS dengan response data
+                    commit('GET_PRODUCTS', response.data.products);
                 })
                 .catch((error) => {
                     // show error log dari response
