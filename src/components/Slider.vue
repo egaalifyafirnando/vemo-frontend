@@ -70,7 +70,6 @@ export default {
         return {
             store,
             sliders,
-            // define content loader data
             ContentLoader: 1,
         };
     },

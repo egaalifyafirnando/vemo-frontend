@@ -65,7 +65,7 @@ const routes = [
     },
     {
         // * CATEGORY
-        path: '/categories/',
+        path: '/categories',
         name: 'categories',
         component: () => import('../views/category/Index.vue'),
     },

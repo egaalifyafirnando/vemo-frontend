@@ -117,7 +117,7 @@
             <div class="row text-center mt-3 pb-3">
                 <div class="col-md-12">
                     <hr />
-                    &copy; <strong>VEMO</strong> 2021 • Hak Cipta Dilindungi
+                    &copy; <strong>VEMO</strong> 2022 • Hak Cipta Dilindungi
                 </div>
             </div>
         </div>

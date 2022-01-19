@@ -188,45 +188,46 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="font-weight-bold"
-                                        >PROVINSI</label
-                                    >
+                                        >PROVINSI
+                                    </label>
                                     <select
                                         class="form-control rounded-pill"
                                         v-model="state.province_id"
                                         @change="getCities"
                                     >
-                                        <option value=""
-                                            >-- pilih provinsi --</option
-                                        >
+                                        <option value="">
+                                            -- pilih provinsi --
+                                        </option>
                                         <option
                                             v-for="province in state.provinces"
                                             :key="province.id"
                                             :value="province.province_id"
                                         >
-                                            {{ province.name }}</option
-                                        >
+                                            {{ province.name }}
+                                        </option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="font-weight-bold"
-                                        >KOTA / KABUPATEN</label
-                                    >
+                                    <label class="font-weight-bold">
+                                        KOTA / KABUPATEN
+                                    </label>
                                     <select
                                         class="form-control rounded-pill"
                                         v-model="state.city_id"
                                         @change="getCourier"
                                     >
-                                        <option value=""
-                                            >-- pilih kota --</option
-                                        >
+                                        <option value="">
+                                            -- pilih kota --
+                                        </option>
                                         <option
                                             v-for="city in state.cities"
                                             :key="city.id"
                                             :value="city.city_id"
-                                            >{{ city.name }}
+                                        >
+                                            {{ city.name }}
                                         </option>
                                     </select>
                                 </div>
@@ -234,13 +235,15 @@
 
                             <div class="col-md-12">
                                 <div class="form-group" v-if="state.courier">
-                                    <label class="font-weight-bold"
-                                        >KURIR PENGIRIMAN</label
-                                    >
+                                    <label class="font-weight-bold">
+                                        KURIR PENGIRIMAN
+                                    </label>
                                     <br />
-                                    <div class="form-check form-check-inline">
+                                    <div
+                                        class="form-check form-check-inline row w-100 mx-auto"
+                                    >
                                         <label
-                                            class="form-check-label font-weight-bold badge badge-pill p-3"
+                                            class="form-check-label font-weight-bold badge badge-pill col-4  py-2"
                                             for="ongkos_kirim-jne"
                                             style="border-radius: 2rem 0 0 2rem; background: #DFD8CA;"
                                         >
@@ -257,7 +260,7 @@
                                             JNE
                                         </label>
                                         <label
-                                            class="form-check-label font-weight-bold badge badge-pill p-3"
+                                            class="form-check-label font-weight-bold badge badge-pill col-4  py-2"
                                             for="ongkos_kirim-tiki"
                                             style="border-radius: 0; background: #DFD8CA;"
                                         >
@@ -274,7 +277,7 @@
                                             TIKI
                                         </label>
                                         <label
-                                            class="form-check-label font-weight-bold badge badge-pill p-3"
+                                            class="form-check-label font-weight-bold badge badge-pill col-4  py-2"
                                             for="ongkos_kirim-pos"
                                             style="border-radius: 0 2rem 2rem 0; background: #DFD8CA;"
                                         >
@@ -307,7 +310,7 @@
                                         class="form-check form-check-inline"
                                     >
                                         <label
-                                            class="form-check-label font-weight-normal p-3"
+                                            class="form-check-label font-weight-normal p-1"
                                             :for="value.service"
                                         >
                                             <input
@@ -338,9 +341,9 @@
 
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="font-weight-bold"
-                                        >ALAMAT LENGKAP</label
-                                    >
+                                    <label class="font-weight-bold">
+                                        ALAMAT LENGKAP
+                                    </label>
                                     <textarea
                                         class="form-control"
                                         style="border-radius: 1.5rem"
@@ -369,7 +372,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- end ongkos kirim -->
                 </div>
             </div>

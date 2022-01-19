@@ -26,11 +26,10 @@
                             <span
                                 class="font-weight-bold mr-2"
                                 style="color: #105652; font-size: 1.2rem"
-                                >Rp.
-                                {{
-                                    formatPrice(calculateDiscount(product))
-                                }}</span
                             >
+                                Rp.
+                                {{ formatPrice(calculateDiscount(product)) }}
+                            </span>
                             <s
                                 v-if="product.discount > 0"
                                 class="font-weight-bold"
@@ -95,7 +94,7 @@
                             class="font-weight-bold"
                             style="font-size: 20px;"
                         >
-                            KETERANGAN
+                            DESKRIPSI PRODUK
                         </label>
                         <hr />
                         <div v-html="product.content"></div>

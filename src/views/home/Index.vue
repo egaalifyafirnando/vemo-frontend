@@ -2,13 +2,38 @@
     <div>
         <div class="container-fluid mt-3">
             <div class="row">
-                <div class="col-md-10 mb-4">
+                <div class="col-md-9 mb-4">
                     <!-- component Slider -->
                     <Slider />
                 </div>
-                <div class="col-md-2 mb-4">
+                <div class="col-md-3 mb-4">
                     <!-- component Category -->
                     <Category />
+                </div>
+            </div>
+        </div>
+        <!-- search -->
+        <div class="container-fluid search-mini">
+            <div class="row">
+                <div class="col input-group mx-auto">
+                    <input
+                        type="text"
+                        v-model="keywords"
+                        class="form-control search-form"
+                        style="width:10%;border: 1px solid #ffffff"
+                        name="q"
+                        placeholder="mau beli apa hari ini ?"
+                        @keypress.enter="search"
+                    />
+                    <div class="input-group-append">
+                        <button
+                            class="btn search-button"
+                            @click="search"
+                            type="submit"
+                        >
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -46,11 +71,15 @@
                                     <span
                                         v-if="product.title.length < 29"
                                         class="title-card"
-                                        >{{ product.title }}</span
                                     >
-                                    <span v-else class="title-card">{{
-                                        product.title.substring(0, 29) + '...'
-                                    }}</span>
+                                        {{ product.title }}
+                                    </span>
+                                    <span v-else class="title-card">
+                                        {{
+                                            product.title.substring(0, 29) +
+                                                '...'
+                                        }}
+                                    </span>
                                 </router-link>
 
                                 <div
@@ -86,8 +115,9 @@
                                     }"
                                     class="btn btn-light btn-md mt-3 btn-block shadow-md text-white rounded-pill"
                                     style="background: #b91646;"
-                                    >Detail</router-link
                                 >
+                                    Detail
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -154,8 +184,9 @@
 import { ContentLoader } from 'vue-content-loader'; // <-- vue content loader
 import Category from '@/components/Category'; // <-- component Category
 import Slider from '@/components/Slider'; // <-- component Slider
-import { onMounted, computed } from '@vue/runtime-core';
+import { onMounted, computed, ref } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 export default {
     components: {
@@ -168,6 +199,9 @@ export default {
         // store vuex
         const store = useStore();
 
+        // vue router
+        const router = useRouter();
+
         // onMounted akan menjalankan action "getProducts" di module product
         onMounted(() => {
             store.dispatch('product/getProducts');
@@ -178,16 +212,25 @@ export default {
             return store.state.product.products;
         });
 
+        // fitur search
+        let keywords = ref('');
+        function search() {
+            store.dispatch('product/getSearchProduct', keywords.value);
+            router.push('/search');
+        }
+
         return {
             store,
             products,
             ContentLoader: 4,
+            keywords,
+            search,
         };
     },
 };
 </script>
 
-<style scooped>
+<style>
 .card .ribbon {
     position: absolute;
     top: -10px;
@@ -237,6 +280,12 @@ export default {
 @media only screen and (min-width: 992px) {
     .title-card {
         font-size: 1.3rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .search-mini {
+        display: none;
     }
 }
 </style>

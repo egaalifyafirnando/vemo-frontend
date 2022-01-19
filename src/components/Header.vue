@@ -132,6 +132,7 @@ export default {
             store.dispatch('cart/cartTotal');
         });
 
+        // fitur search
         let keywords = ref('');
         function search() {
             store.dispatch('product/getSearchProduct', keywords.value);

@@ -12,6 +12,31 @@
                 </div>
             </div>
         </div>
+        <!-- search -->
+        <div class="container-fluid search-mini">
+            <div class="row">
+                <div class="col input-group mx-auto">
+                    <input
+                        type="text"
+                        v-model="keywords"
+                        class="form-control search-form"
+                        style="width:10%;border: 1px solid #ffffff"
+                        name="q"
+                        placeholder="mau beli apa hari ini ?"
+                        @keypress.enter="search"
+                    />
+                    <div class="input-group-append">
+                        <button
+                            class="btn search-button"
+                            @click="search"
+                            type="submit"
+                        >
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="mb-5 mt-4">
             <!-- data product -->
             <div class="col">
@@ -45,11 +70,15 @@
                                     <span
                                         v-if="product.title.length < 29"
                                         class="title-card"
-                                        >{{ product.title }}</span
                                     >
-                                    <span v-else class="title-card">{{
-                                        product.title.substring(0, 29) + '...'
-                                    }}</span>
+                                        {{ product.title }}
+                                    </span>
+                                    <span v-else class="title-card">
+                                        {{
+                                            product.title.substring(0, 29) +
+                                                '...'
+                                        }}
+                                    </span>
                                 </router-link>
 
                                 <div
@@ -61,8 +90,9 @@
                                     <span
                                         style="background-color: #105652;"
                                         class="badge badge-pill badge-success text-white float-md-right"
-                                        >{{ product.discount }}% OFF</span
                                     >
+                                        {{ product.discount }}% OFF
+                                    </span>
                                 </div>
 
                                 <div v-else class="mt-2">
@@ -85,8 +115,9 @@
                                     }"
                                     class="btn btn-light btn-md mt-3 btn-block shadow-md text-white rounded-pill"
                                     style="background: #b91646;"
-                                    >Detail</router-link
                                 >
+                                    Detail
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -153,8 +184,9 @@
 import { ContentLoader } from 'vue-content-loader'; // <-- vue content loader
 import Category from '@/components/Category'; // <-- component Category
 import Slider from '@/components/Slider'; // <-- component Slider
-import { onMounted, computed } from '@vue/runtime-core';
+import { onMounted, computed, ref } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 
 export default {
     components: {
@@ -167,6 +199,9 @@ export default {
         // store vuex
         const store = useStore();
 
+        // vue router
+        const router = useRouter();
+
         // onMounted akan menjalankan action "getProducts" di module product
         onMounted(() => {
             store.dispatch('product/getProducts');
@@ -177,65 +212,20 @@ export default {
             return store.state.product.products;
         });
 
+        // fitur search
+        let keywords = ref('');
+        function search() {
+            store.dispatch('product/getSearchProduct', keywords.value);
+            router.push('/search');
+        }
+
         return {
             store,
             products,
             ContentLoader: 4,
+            search,
+            keywords,
         };
     },
 };
 </script>
-
-<style scooped>
-.card .ribbon {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 100px;
-    height: 100px;
-    /* background: red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.card .ribbon:before {
-    content: 'discount';
-    position: absolute;
-    width: 150%;
-    height: 40px;
-    background: #b91646;
-    transform: rotate(-45deg) translateY(-20px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: white;
-}
-
-.card .ribbon:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    background: #770f2e;
-    z-index: -1;
-    /* 
-    height ribbon: 150
-    height rear ribbon: 10
-    150 - 10 = 140
-     */
-    box-shadow: 90px -90px #770f2e;
-}
-
-/* media query title card */
-@media only screen and (min-width: 992px) {
-    .title-card {
-        font-size: 1.3rem;
-    }
-}
-</style>

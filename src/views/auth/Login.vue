@@ -54,8 +54,8 @@
                     <p>
                         Belum punya akun ?
                         <router-link :to="{ name: 'register' }"
-                            >Daftar Sekarang !</router-link
-                        >
+                            >Daftar Sekarang !
+                        </router-link>
                     </p>
                 </div>
             </div>

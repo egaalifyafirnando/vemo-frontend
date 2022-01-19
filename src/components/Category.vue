@@ -61,8 +61,8 @@
                 <router-link
                     :to="{ name: 'categories' }"
                     class="list-group-item text-center active shadow-sm font-weight-bold text-decoration-none rounded-pill"
-                    >KATEGORI LAINNYA <i class="fa fa-long-arrow-alt-right"></i
-                ></router-link>
+                    >LAINNYA <i class="fa fa-long-arrow-alt-right"></i>
+                </router-link>
             </ul>
         </div>
     </div>

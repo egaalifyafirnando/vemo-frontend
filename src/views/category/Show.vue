@@ -32,9 +32,9 @@
                                     class="title-card"
                                     >{{ product.title }}</span
                                 >
-                                <span v-else class="title-card">{{
-                                    product.title.substring(0, 29) + '...'
-                                }}</span>
+                                <span v-else class="title-card">
+                                    {{ product.title.substring(0, 29) + '...' }}
+                                </span>
                             </router-link>
 
                             <div
@@ -46,8 +46,9 @@
                                 <span
                                     style="background-color: #105652;"
                                     class="badge badge-pill badge-success text-white float-md-right"
-                                    >{{ product.discount }}% OFF</span
                                 >
+                                    {{ product.discount }}% OFF
+                                </span>
                             </div>
 
                             <div v-else class="mt-2">
@@ -68,8 +69,9 @@
                                 }"
                                 class="btn btn-light btn-md mt-3 btn-block shadow-md text-white rounded-pill"
                                 style="background: #b91646;"
-                                >Detail</router-link
                             >
+                                Detail
+                            </router-link>
                         </div>
                     </div>
                 </div>

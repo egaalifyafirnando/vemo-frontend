@@ -22,7 +22,7 @@
 <script>
 //import customer menu component
 import CustomerMenu from '@/components/CustomerMenu';
-import { computed, onMounted /* reactive */ } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useStore } from 'vuex';
 
 export default {

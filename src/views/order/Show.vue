@@ -154,9 +154,9 @@
                             </div>
                             <div class="col-8">
                                 <h5>
-                                    <b style="font-size: 1.1rem">{{
-                                        product.product_name
-                                    }}</b>
+                                    <b style="font-size: 1.1rem">
+                                        {{ product.product_name }}
+                                    </b>
                                 </h5>
                                 <p class="m-0" style="font-size: 1rem">
                                     Rp. {{ moneyFormat(product.price) }}
