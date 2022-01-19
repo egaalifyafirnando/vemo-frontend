@@ -13,6 +13,7 @@
                         <div class="card-img">
                             <img
                                 :src="product.image"
+                                loading="lazy"
                                 class="w-100"
                                 style="height: 15em;object-fit:cover;border-top-left-radius: .25rem;border-top-right-radius: .25rem;"
                             />

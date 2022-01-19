@@ -14,7 +14,11 @@
                 >
                     <div class="card h-100 border-0 rounded shadow">
                         <div class="card-body text-center">
-                            <img :src="category.image" style="width: 100px;" />
+                            <img
+                                :src="category.image"
+                                loading="lazy"
+                                style="width: 100px;"
+                            />
                             <hr />
                             <label
                                 class="font-weight-bold"
