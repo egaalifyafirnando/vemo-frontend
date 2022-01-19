@@ -85,10 +85,14 @@ const auth = {
             const token = localStorage.getItem('token');
 
             Api.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-            Api.get('/user').then((response) => {
-                // commit ke mutation GET_USER dengan hasil response
-                commit('GET_USER', response.data.user);
-            });
+            Api.get('/user')
+                .then((response) => {
+                    // commit ke mutation GET_USER dengan hasil response
+                    commit('GET_USER', response.data.user);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
         },
 
         // action logout
