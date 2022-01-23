@@ -100,7 +100,7 @@
                                                 detailOrder.status == 'pending'
                                             "
                                             class="btn btn-light text-white rounded-pill"
-                                            style="background: #B91646;font-size:.8rem;"
+                                            style="background: #911F27;font-size:.8rem;"
                                         >
                                             BAYAR SEKARANG
                                         </button>

@@ -65,8 +65,8 @@
                                         name: 'detail_product',
                                         params: { slug: product.slug },
                                     }"
-                                    class="card-title font-weight-bold"
-                                    style="font-size:1rem; color: #b91646;"
+                                    class="card-title font-weight-bold text-dark"
+                                    style="font-size:1rem;"
                                 >
                                     <span
                                         v-if="product.title.length < 29"
@@ -113,8 +113,8 @@
                                         name: 'detail_product',
                                         params: { slug: product.slug },
                                     }"
-                                    class="btn btn-light btn-md mt-3 btn-block shadow-md text-white rounded-pill"
-                                    style="background: #b91646;"
+                                    class="btn btn-light btn-md mt-3 btn-block shadow-md text-white font-weight-bold rounded-pill"
+                                    style="background: #911F27;"
                                 >
                                     Detail
                                 </router-link>
@@ -249,7 +249,7 @@ export default {
     position: absolute;
     width: 150%;
     height: 40px;
-    background: #b91646;
+    background: #911f27;
     transform: rotate(-45deg) translateY(-20px);
     display: flex;
     justify-content: center;
@@ -266,14 +266,14 @@ export default {
     left: 0;
     width: 10px;
     height: 10px;
-    background: #770f2e;
+    background: #3a0d10;
     z-index: -1;
     /* 
     height ribbon: 150
     height rear ribbon: 10
     150 - 10 = 140
      */
-    box-shadow: 90px -90px #770f2e;
+    box-shadow: 90px -90px #3a0d10;
 }
 
 /* media query title card */

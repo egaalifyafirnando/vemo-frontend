@@ -48,7 +48,7 @@
                                     <button
                                         @click.prevent="removeCart(cart.id)"
                                         class="btn btn-sm btn-danger float-right"
-                                        style="background: #B91646;"
+                                        style="background: #911F27;"
                                     >
                                         <i class="fa fa-trash"></i>
                                     </button>
@@ -349,7 +349,7 @@
                                         style="border-radius: 1.5rem"
                                         id="alamat"
                                         rows="3"
-                                        placeholder="Alamat Lengkap&#10;&#10;Contoh: Perum. Griya Palem Indah, B-17 Jombang Jawa Timur 61419"
+                                        placeholder="Alamat Lengkap&#10;&#10;Contoh: Jl. Langsep no. x, Ds. Tenggulunan, Candi, Sidoarjo 61271"
                                         v-model="state.address"
                                     ></textarea>
                                     <div
@@ -365,7 +365,7 @@
                                 <button
                                     @click.prevent="checkout"
                                     class="btn btn-light btn-lg btn-block rounded-pill"
-                                    style="background: #B91646; color: white"
+                                    style="background: #911F27; color: white"
                                 >
                                     CHECKOUT
                                 </button>

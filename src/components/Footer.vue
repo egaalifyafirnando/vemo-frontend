@@ -1,7 +1,7 @@
 <template>
     <footer
-        style="background: #ffffff;border-top: 5px solid #B91646;"
-        class="pt-5"
+        style="background: #911F27;border-top: 8px solid #630A10;"
+        class="pt-5 text-white"
     >
         <div class="container-fluid">
             <div class="row">
@@ -15,16 +15,16 @@
                         Beli Aman & Harga Termurah! Belanja sekarang.
                     </p>
                     <div class="social">
-                        <a href="#" class="mr-4" style="color:#B91646">
+                        <a href="#" class="mr-4" style="color:#630A10">
                             <i class="fab fa-facebook fa-2x"></i
                         ></a>
-                        <a href="#" class="mr-4" style="color:#B91646">
+                        <a href="#" class="mr-4" style="color:#630A10">
                             <i class="fab fa-twitter fa-2x"></i
                         ></a>
-                        <a href="#" class="mr-4" style="color: #B91646;">
+                        <a href="#" class="mr-4" style="color: #630A10;">
                             <i class="fab fa-instagram fa-2x"></i
                         ></a>
-                        <a href="#" style="color: #B91646;">
+                        <a href="#" style="color: #630A10;">
                             <i class="fab fa-youtube fa-2x"></i
                         ></a>
                     </div>

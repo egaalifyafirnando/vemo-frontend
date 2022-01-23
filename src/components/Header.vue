@@ -43,7 +43,7 @@
                                     <router-link
                                         :to="{ name: 'cart' }"
                                         class="badge badge-pill mt-1"
-                                        style="color: #b91646;background-color: #fff;border-color: #ffffff; line-height: 20px; cursor: pointer;"
+                                        style="color: #911F27;background-color: #fff;border-color: #fff; line-height: 20px; cursor: pointer;"
                                     >
                                         <i class="fa fa-shopping-cart"></i>
                                         {{ cartCount }} | Rp.
@@ -57,7 +57,6 @@
                                     :to="{ name: 'login' }"
                                     v-if="!isLoggedIn"
                                     class="ml-3"
-                                    style="background-color: #B91646;"
                                 >
                                     <i
                                         class="fa fa-user-circle"
@@ -69,7 +68,6 @@
                                     :to="{ name: 'dashboard' }"
                                     v-else
                                     class="ml-3"
-                                    style="background-color: #B91646;"
                                 >
                                     <i
                                         class="fa fa-store-alt"

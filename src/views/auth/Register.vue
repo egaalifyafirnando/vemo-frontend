@@ -77,7 +77,7 @@
                             <button
                                 type="submit"
                                 class="btn btn-light btn-md mt-3 btn-block shadow-md text-white rounded-pill"
-                                style="background: #b91646;"
+                                style="background: #911F27;"
                             >
                                 REGISTER
                             </button>

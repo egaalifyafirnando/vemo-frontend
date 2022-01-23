@@ -77,7 +77,7 @@
                                 )
                             "
                             class="btn btn-light btn-lg btn-block text-white rounded-pill"
-                            style="background: #B91646"
+                            style="background: #911F27"
                         >
                             <i class="fa fa-shopping-cart"></i>
                             TAMBAH KE KERANJANG

@@ -15,7 +15,7 @@
                         <table class="table table-striped table-bordered">
                             <thead
                                 class="text-white"
-                                style="background: #B91646"
+                                style="background: #911F27"
                             >
                                 <tr>
                                     <th scope="col">INVOICE</th>
@@ -47,7 +47,7 @@
                                                 },
                                             }"
                                             class="btn btn-sm btn-light rounded-pill text-white"
-                                            style="background: #B91646"
+                                            style="background: #911F27"
                                         >
                                             DETAIL
                                         </router-link>

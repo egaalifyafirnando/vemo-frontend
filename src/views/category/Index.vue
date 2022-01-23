@@ -1,6 +1,5 @@
 <template>
     <div class="container-fluid mb-5 mt-4">
-        <div class="col"></div>
         <div v-if="categories.length > 0" class="row">
             <div
                 v-for="category in categories"
