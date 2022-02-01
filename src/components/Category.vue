@@ -1,9 +1,7 @@
 <template>
     <div class="card border-0 shadow rounded">
         <div class="card-body">
-            <h5 class="font-weight-bold">
-                <i class="fa fa-shopping-bag"></i> KATEGORI
-            </h5>
+            <h5 class="font-weight-bold"><i class="fa fa-shopping-bag"></i> KATEGORI</h5>
             <hr />
             <ul class="list-group">
                 <div v-if="categories.length > 0">
@@ -23,36 +21,10 @@
                 <div v-else>
                     <div v-for="loader in ContentLoader" :key="loader">
                         <div>
-                            <ContentLoader
-                                viewBox="0 0 200 130"
-                                :speed="2"
-                                primaryColor="#f3f3f3"
-                                secondaryColor="#ecebeb"
-                            >
-                                <rect
-                                    x="5"
-                                    y="2"
-                                    rx="16"
-                                    ry="16"
-                                    width="192"
-                                    height="36"
-                                />
-                                <rect
-                                    x="5"
-                                    y="45"
-                                    rx="16"
-                                    ry="16"
-                                    width="192"
-                                    height="36"
-                                />
-                                <rect
-                                    x="5"
-                                    y="88"
-                                    rx="16"
-                                    ry="16"
-                                    width="192"
-                                    height="36"
-                                />
+                            <ContentLoader viewBox="0 0 200 130" :speed="2" primaryColor="#f3f3f3" secondaryColor="#ecebeb">
+                                <rect x="5" y="2" rx="16" ry="16" width="192" height="36" />
+                                <rect x="5" y="45" rx="16" ry="16" width="192" height="36" />
+                                <rect x="5" y="88" rx="16" ry="16" width="192" height="36" />
                             </ContentLoader>
                         </div>
                     </div>

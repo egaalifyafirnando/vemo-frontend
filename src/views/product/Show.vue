@@ -11,30 +11,16 @@
             <div class="col-md-4">
                 <div class="card border-0 rounded shadow">
                     <div class="card-body">
-                        <label
-                            class="font-weight-bold"
-                            style="font-size: 20px;"
-                        >
+                        <label class="font-weight-bold" style="font-size: 20px;">
                             {{ product.title }}
                         </label>
                         <hr />
-                        <div
-                            class="price-product"
-                            id="price-product"
-                            style="font-size: 1.35rem"
-                        >
-                            <span
-                                class="font-weight-bold mr-2"
-                                style="color: #105652; font-size: 1.2rem"
-                            >
+                        <div class="price-product" id="price-product" style="font-size: 1.35rem">
+                            <span class="font-weight-bold mr-2" style="color: #105652; font-size: 1.2rem">
                                 Rp.
                                 {{ formatPrice(calculateDiscount(product)) }}
                             </span>
-                            <s
-                                v-if="product.discount > 0"
-                                class="font-weight-bold"
-                                style="text-decoration-color:red; font-size: 1rem"
-                            >
+                            <s v-if="product.discount > 0" class="font-weight-bold" style="text-decoration-color:red; font-size: 1rem">
                                 Rp. {{ formatPrice(product.price) }}
                             </s>
                         </div>
@@ -69,18 +55,12 @@
                             </tbody>
                         </table>
                         <button
-                            @click.prevent="
-                                addToCart(
-                                    product.id,
-                                    calculateDiscount(product),
-                                    product.weight
-                                )
-                            "
+                            @click.prevent="addToCart(product.id, calculateDiscount(product), product.weight)"
                             class="btn btn-light btn-lg btn-block text-white rounded-pill"
                             style="background: #911F27"
                         >
                             <i class="fa fa-shopping-cart"></i>
-                            TAMBAH KE KERANJANG
+                            MASUKKAN KERANJANG
                         </button>
                     </div>
                 </div>
@@ -90,10 +70,7 @@
             <div class="col-md-12">
                 <div class="card border-0 rounded shadow">
                     <div class="card-body">
-                        <label
-                            class="font-weight-bold"
-                            style="font-size: 20px;"
-                        >
+                        <label class="font-weight-bold" style="font-size: 20px;">
                             DESKRIPSI PRODUK
                         </label>
                         <hr />

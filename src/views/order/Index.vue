@@ -13,10 +13,7 @@
                         </h5>
                         <hr />
                         <table class="table table-striped table-bordered">
-                            <thead
-                                class="text-white"
-                                style="background: #911F27"
-                            >
+                            <thead class="text-white" style="background: #911F27">
                                 <tr>
                                     <th scope="col">INVOICE</th>
                                     <th scope="col">FULL NAME</th>
@@ -30,20 +27,16 @@
                                     <th>{{ order.invoice }}</th>
                                     <td>{{ order.name }}</td>
                                     <td>
-                                        {{ order.courier.toUpperCase() }} |
-                                        {{ order.service }} | Rp.
+                                        {{ order.courier.toUpperCase() }} | {{ order.service }} | Rp.
                                         {{ moneyFormat(order.cost_courier) }}
                                     </td>
-                                    <td>
-                                        Rp. {{ moneyFormat(order.grand_total) }}
-                                    </td>
+                                    <td>Rp. {{ moneyFormat(order.grand_total) }}</td>
                                     <td class="text-center">
                                         <router-link
                                             :to="{
                                                 name: 'detail_order',
                                                 params: {
-                                                    snap_token:
-                                                        order.snap_token,
+                                                    snap_token: order.snap_token,
                                                 },
                                             }"
                                             class="btn btn-sm btn-light rounded-pill text-white"

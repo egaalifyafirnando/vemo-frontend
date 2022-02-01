@@ -4,11 +4,7 @@
             <div class="container-fluid">
                 <div class="row align-items-center">
                     <div class="col-md-3 col-4">
-                        <router-link
-                            :to="{ name: 'home' }"
-                            class="text-decoration-none"
-                            data-abc="true"
-                        >
+                        <router-link :to="{ name: 'home' }" class="text-decoration-none" data-abc="true">
                             <span class="logo">
                                 VEMO
                             </span>
@@ -26,11 +22,7 @@
                                 @keypress.enter="search"
                             />
                             <div class="input-group-append">
-                                <button
-                                    class="btn search-button"
-                                    @click="search"
-                                    type="submit"
-                                >
+                                <button class="btn search-button" @click="search" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
@@ -53,22 +45,14 @@
                             </div>
 
                             <div class="account">
-                                <router-link
-                                    :to="{ name: 'login' }"
-                                    v-if="!isLoggedIn"
-                                    class="ml-3"
-                                >
+                                <router-link :to="{ name: 'login' }" v-if="!isLoggedIn" class="ml-3">
                                     <i
                                         class="fa fa-user-circle"
                                         style="color: white;
                                         font-size: 1.7rem; line-height: 33px"
                                     ></i>
                                 </router-link>
-                                <router-link
-                                    :to="{ name: 'dashboard' }"
-                                    v-else
-                                    class="ml-3"
-                                >
+                                <router-link :to="{ name: 'dashboard' }" v-else class="ml-3">
                                     <i
                                         class="fa fa-store-alt"
                                         style="color: white;

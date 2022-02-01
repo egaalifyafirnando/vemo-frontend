@@ -11,35 +11,18 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Full Name</label>
-                                        <input
-                                            type="text"
-                                            v-model="user.name"
-                                            class="form-control rounded-pill"
-                                            placeholder="Full Name"
-                                        />
+                                        <input type="text" v-model="user.name" class="form-control rounded-pill" placeholder="Full Name" />
                                     </div>
-                                    <div
-                                        v-if="validation.name"
-                                        class="mt-2 alert alert-danger rounded-pill"
-                                        style="padding= 0px;"
-                                    >
+                                    <div v-if="validation.name" class="mt-2 alert alert-danger rounded-pill" style="padding= 0px;">
                                         {{ validation.name[0] }}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Email address</label>
-                                        <input
-                                            type="email"
-                                            v-model="user.email"
-                                            class="form-control rounded-pill"
-                                            placeholder="Email Address"
-                                        />
+                                        <input type="email" v-model="user.email" class="form-control rounded-pill" placeholder="Email Address" />
                                     </div>
-                                    <div
-                                        v-if="validation.email"
-                                        class="mt-2 alert alert-danger rounded-pill"
-                                    >
+                                    <div v-if="validation.email" class="mt-2 alert alert-danger rounded-pill">
                                         {{ validation.email[0] }}
                                     </div>
                                 </div>
@@ -55,10 +38,7 @@
                                             placeholder="Password"
                                         />
                                     </div>
-                                    <div
-                                        v-if="validation.password"
-                                        class="mt-2 alert alert-danger rounded-pill"
-                                    >
+                                    <div v-if="validation.password" class="mt-2 alert alert-danger rounded-pill">
                                         {{ validation.password[0] }}
                                     </div>
                                 </div>
@@ -87,9 +67,7 @@
                 <div class="register mt-3 text-center">
                     <p>
                         Sudah punya akun ?
-                        <router-link :to="{ name: 'login' }"
-                            >Login Disini !
-                        </router-link>
+                        <router-link :to="{ name: 'login' }">Login Disini ! </router-link>
                     </p>
                 </div>
             </div>

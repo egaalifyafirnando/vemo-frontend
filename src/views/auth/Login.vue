@@ -12,32 +12,16 @@
                         <form @submit.prevent="login">
                             <div class="form-group">
                                 <label>Email Address</label>
-                                <input
-                                    type="email"
-                                    v-model="user.email"
-                                    class="form-control rounded-pill"
-                                    placeholder="Email Address"
-                                />
+                                <input type="email" v-model="user.email" class="form-control rounded-pill" placeholder="Email Address" />
                             </div>
-                            <div
-                                v-if="validation.email"
-                                class="mt-2 alert alert-danger rounded-pill"
-                            >
+                            <div v-if="validation.email" class="mt-2 alert alert-danger rounded-pill">
                                 {{ validation.email[0] }}
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input
-                                    type="password"
-                                    v-model="user.password"
-                                    class="form-control rounded-pill"
-                                    placeholder="Password"
-                                />
+                                <input type="password" v-model="user.password" class="form-control rounded-pill" placeholder="Password" />
                             </div>
-                            <div
-                                v-if="validation.password"
-                                class="mt-2 alert alert-danger rounded-pill"
-                            >
+                            <div v-if="validation.password" class="mt-2 alert alert-danger rounded-pill">
                                 {{ validation.password[0] }}
                             </div>
                             <button
@@ -53,9 +37,7 @@
                 <div class="register mt-3 text-center">
                     <p>
                         Belum punya akun ?
-                        <router-link :to="{ name: 'register' }"
-                            >Daftar Sekarang !
-                        </router-link>
+                        <router-link :to="{ name: 'register' }">Daftar Sekarang ! </router-link>
                     </p>
                 </div>
             </div>

@@ -47,13 +47,8 @@
                                     </td>
                                     <td>:</td>
                                     <td>
-                                        {{ detailOrder.courier }} /
-                                        {{ detailOrder.service }} / Rp.
-                                        {{
-                                            formatPrice(
-                                                detailOrder.cost_courier
-                                            )
-                                        }}
+                                        {{ detailOrder.courier }} / {{ detailOrder.service }} / Rp.
+                                        {{ formatPrice(detailOrder.cost_courier) }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -72,9 +67,7 @@
                                     <td>:</td>
                                     <td>
                                         Rp.
-                                        {{
-                                            formatPrice(detailOrder.grand_total)
-                                        }}
+                                        {{ formatPrice(detailOrder.grand_total) }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -93,39 +86,20 @@
                                     <td>:</td>
                                     <td>
                                         <button
-                                            @click="
-                                                payment(detailOrder.snap_token)
-                                            "
-                                            v-if="
-                                                detailOrder.status == 'pending'
-                                            "
+                                            @click="payment(detailOrder.snap_token)"
+                                            v-if="detailOrder.status == 'pending'"
                                             class="btn btn-light text-white rounded-pill"
                                             style="background: #911F27;font-size:.8rem;"
                                         >
                                             BAYAR SEKARANG
                                         </button>
-                                        <button
-                                            v-else-if="
-                                                detailOrder.status == 'success'
-                                            "
-                                            class="btn btn-success"
-                                        >
+                                        <button v-else-if="detailOrder.status == 'success'" class="btn btn-success">
                                             {{ detailOrder.status }}
                                         </button>
-                                        <button
-                                            v-else-if="
-                                                detailOrder.status == 'expired'
-                                            "
-                                            class="btn btn-warning"
-                                        >
+                                        <button v-else-if="detailOrder.status == 'expired'" class="btn btn-warning">
                                             {{ detailOrder.status }}
                                         </button>
-                                        <button
-                                            v-else-if="
-                                                detailOrder.status == 'failed'
-                                            "
-                                            class="btn btn-danger"
-                                        >
+                                        <button v-else-if="detailOrder.status == 'failed'" class="btn btn-danger">
                                             {{ detailOrder.status }}
                                         </button>
                                     </td>
@@ -139,17 +113,10 @@
                     <div class="card-body">
                         <h5><i class="fa fa-shopping-cart"></i> DETAIL ITEM</h5>
                         <hr />
-                        <div
-                            class="row pb-3"
-                            v-for="product in productInOrder"
-                            :key="product.id"
-                        >
+                        <div class="row pb-3" v-for="product in productInOrder" :key="product.id">
                             <div class="col-4">
                                 <div class="wrapper-image-cart">
-                                    <img
-                                        :src="product.image"
-                                        style="width: 100%;border-radius: .5rem"
-                                    />
+                                    <img :src="product.image" style="width: 100%;border-radius: .5rem" />
                                 </div>
                             </div>
                             <div class="col-8">
@@ -158,12 +125,8 @@
                                         {{ product.product_name }}
                                     </b>
                                 </h5>
-                                <p class="m-0" style="font-size: 1rem">
-                                    Rp. {{ moneyFormat(product.price) }}
-                                </p>
-                                <p class="m-0" style="font-size: 1rem">
-                                    Jumlah : {{ product.qty }}
-                                </p>
+                                <p class="m-0" style="font-size: 1rem">Rp. {{ moneyFormat(product.price) }}</p>
+                                <p class="m-0" style="font-size: 1rem">Jumlah : {{ product.qty }}</p>
                             </div>
                         </div>
                     </div>

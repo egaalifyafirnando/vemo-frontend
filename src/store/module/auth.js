@@ -57,8 +57,7 @@ const auth = {
                         localStorage.setItem('user', JSON.stringify(user));
 
                         //set default header axios dengan token
-                        Api.defaults.headers.common['Authorization'] =
-                            'Bearer ' + token;
+                        Api.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 
                         //commit auth success ke mutation
                         commit('AUTH_SUCCESS', token, user);
@@ -140,8 +139,7 @@ const auth = {
                         localStorage.setItem('user', JSON.stringify(user));
 
                         // set default header axios dengan token
-                        Api.defaults.headers.common['Authorization'] =
-                            'Bearer ' + token;
+                        Api.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 
                         // commit auth success ke mutation
                         commit('AUTH_SUCCESS', token, user);
