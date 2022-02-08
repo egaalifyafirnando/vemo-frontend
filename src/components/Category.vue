@@ -10,9 +10,9 @@
                             name: 'detail_category',
                             params: { slug: category.slug },
                         }"
-                        v-for="category in categories.slice(0, 4)"
+                        v-for="category in categories.slice(0, 3)"
                         :key="category.id"
-                        class="list-group-item shadow-sm font-weight-bold text-decoration-none text-dark rounded-pill"
+                        class="list-group-item font-weight-bold text-decoration-none text-dark rounded-pill"
                     >
                         <img :src="category.image" style="width:35px" />
                         {{ category.name }}
@@ -21,11 +21,14 @@
                 <div v-else>
                     <div v-for="loader in ContentLoader" :key="loader">
                         <div>
-                            <ContentLoader viewBox="0 0 200 130" :speed="2" primaryColor="#f3f3f3" secondaryColor="#ecebeb">
+                            <!-- <ContentLoader viewBox="0 0 200 130" :speed="2" primaryColor="#f3f3f3" secondaryColor="#ecebeb">
                                 <rect x="5" y="2" rx="16" ry="16" width="192" height="36" />
                                 <rect x="5" y="45" rx="16" ry="16" width="192" height="36" />
                                 <rect x="5" y="88" rx="16" ry="16" width="192" height="36" />
-                            </ContentLoader>
+                            </ContentLoader> -->
+                            <content-loader viewBox="0 0 135 25" :speed="2" primaryColor="#f3f3f3" secondaryColor="#ecebeb">
+                                <rect x="1" y="2" rx="9" ry="9" width="130" height="19" />
+                            </content-loader>
                         </div>
                     </div>
                 </div>
@@ -64,7 +67,7 @@ export default {
 
         return {
             categories,
-            ContentLoader: 1,
+            ContentLoader: 3,
         };
     },
 };
