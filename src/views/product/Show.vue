@@ -55,10 +55,15 @@
                             </tbody>
                         </table>
                         <button
+                            v-if="product.stock > 0"
                             @click.prevent="addToCart(product.id, calculateDiscount(product), product.weight)"
                             class="btn btn-light btn-lg btn-block text-white rounded-pill"
                             style="background: #911F27"
                         >
+                            <i class="fa fa-shopping-cart"></i>
+                            MASUKKAN KERANJANG
+                        </button>
+                        <button v-else class="btn btn-light btn-lg btn-block text-white rounded-pill" style="background: #911F27" disabled>
                             <i class="fa fa-shopping-cart"></i>
                             MASUKKAN KERANJANG
                         </button>
