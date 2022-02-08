@@ -183,7 +183,7 @@ export default {
     content: 'diskon';
     position: absolute;
     width: 150%;
-    height: 40px;
+    height: 30px;
     background: #911f27;
     transform: rotate(-45deg) translateY(-25px);
     display: flex;
@@ -197,7 +197,7 @@ export default {
 .card .ribbon:after {
     content: '';
     position: absolute;
-    bottom: 7px;
+    bottom: 14px;
     left: 0;
     width: 10px;
     height: 10px;
@@ -208,7 +208,7 @@ export default {
     height rear ribbon: 10
     150 - 10 = 140
      */
-    box-shadow: 83px -83px #3a0d10;
+    box-shadow: 76px -76px #3a0d10;
 }
 
 /* media query title card */
