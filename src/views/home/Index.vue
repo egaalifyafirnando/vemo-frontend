@@ -168,8 +168,8 @@ export default {
 <style>
 .card .ribbon {
     position: absolute;
-    top: -10px;
-    left: -10px;
+    top: -5px;
+    left: -5px;
     width: 100px;
     height: 100px;
     /* background: red; */
@@ -185,7 +185,7 @@ export default {
     width: 150%;
     height: 40px;
     background: #911f27;
-    transform: rotate(-45deg) translateY(-20px);
+    transform: rotate(-45deg) translateY(-25px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -197,7 +197,7 @@ export default {
 .card .ribbon:after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: 7px;
     left: 0;
     width: 10px;
     height: 10px;
@@ -208,7 +208,7 @@ export default {
     height rear ribbon: 10
     150 - 10 = 140
      */
-    box-shadow: 90px -90px #3a0d10;
+    box-shadow: 83px -83px #3a0d10;
 }
 
 /* media query title card */
