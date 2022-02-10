@@ -17,21 +17,13 @@
                                 <tr>
                                     <th scope="col">INVOICE</th>
                                     <th scope="col">FULL NAME</th>
-                                    <th scope="col">SHIPPING</th>
-                                    <th scope="col">GRAND TOTAL</th>
-                                    <th scope="col">OPTIONS</th>
+                                    <th scope="col">TOTAL PEMBAYARAN</th>
+                                    <th scope="col">STATUS</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="order in orders" :key="order.id">
-                                    <th>{{ order.invoice }}</th>
-                                    <td>{{ order.name }}</td>
-                                    <td>
-                                        {{ order.courier.toUpperCase() }} | {{ order.service }} | Rp.
-                                        {{ moneyFormat(order.cost_courier) }}
-                                    </td>
-                                    <td>Rp. {{ moneyFormat(order.grand_total) }}</td>
-                                    <td class="text-center">
+                                    <th>
                                         <router-link
                                             :to="{
                                                 name: 'detail_order',
@@ -39,11 +31,43 @@
                                                     snap_token: order.snap_token,
                                                 },
                                             }"
-                                            class="btn btn-sm btn-light rounded-pill text-white"
-                                            style="background: #911F27"
+                                            class="badge badge-pill text-white p-2 cursor-pointer"
+                                            style="background: #911F27;font-size:.8rem;"
                                         >
-                                            DETAIL
+                                            {{ order.invoice }}
                                         </router-link>
+                                    </th>
+                                    <td>{{ order.name }}</td>
+                                    <td>Rp. {{ moneyFormat(order.grand_total) }}</td>
+                                    <td class="text-center">
+                                        <span
+                                            v-if="order.status == 'pending'"
+                                            class="badge badge-pill text-white font-weight-bolder text-uppercase p-2"
+                                            style="background: #2D5C7F;font-size:.8rem;"
+                                        >
+                                            {{ order.status }}
+                                        </span>
+                                        <span
+                                            v-else-if="order.status == 'success'"
+                                            class="badge badge-pill text-white font-weight-bolder text-uppercase p-2"
+                                            style="background: #105652;font-size:.8rem;"
+                                        >
+                                            {{ order.status }}
+                                        </span>
+                                        <span
+                                            v-else-if="order.status == 'expired'"
+                                            class="badge badge-pill font-weight-bolder text-uppercase p-2"
+                                            style="background:#FECD51;font-size:.8rem;"
+                                        >
+                                            {{ order.status }}
+                                        </span>
+                                        <span
+                                            v-else-if="order.status == 'failed'"
+                                            class="badge badge-pill text-white font-weight-bolder text-uppercase p-2"
+                                            style="background: #911F27;font-size:.8rem;"
+                                        >
+                                            {{ order.status }}
+                                        </span>
                                     </td>
                                 </tr>
                             </tbody>

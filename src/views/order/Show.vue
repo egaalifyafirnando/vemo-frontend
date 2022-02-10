@@ -43,16 +43,6 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        KURIR / SERVICE / COST
-                                    </td>
-                                    <td>:</td>
-                                    <td>
-                                        {{ detailOrder.courier }} / {{ detailOrder.service }} / Rp.
-                                        {{ formatPrice(detailOrder.cost_courier) }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
                                         ALAMAT LENGKAP
                                     </td>
                                     <td>:</td>
@@ -62,21 +52,22 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        TOTAL PEMBELIAN
+                                        BIAYA KURIR
+                                    </td>
+                                    <td>:</td>
+                                    <td>
+                                        Rp.
+                                        {{ formatPrice(detailOrder.cost_courier) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        TOTAL PEMBAYARAN
                                     </td>
                                     <td>:</td>
                                     <td>
                                         Rp.
                                         {{ formatPrice(detailOrder.grand_total) }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        CATATAN PESANAN
-                                    </td>
-                                    <td>:</td>
-                                    <td>
-                                        {{ detailOrder.product_message }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -88,20 +79,32 @@
                                         <button
                                             @click="payment(detailOrder.snap_token)"
                                             v-if="detailOrder.status == 'pending'"
-                                            class="btn btn-light text-white rounded-pill"
-                                            style="background: #911F27;font-size:.8rem;"
+                                            class="btn btn-light text-white rounded-pill font-weight-bolder text-uppercase"
+                                            style="background: #2D5C7F;font-size:.8rem;"
                                         >
                                             BAYAR SEKARANG
                                         </button>
-                                        <button v-else-if="detailOrder.status == 'success'" class="btn btn-success">
+                                        <span
+                                            v-else-if="detailOrder.status == 'success'"
+                                            class="badge badge-pill text-white font-weight-bolder text-uppercase p-2"
+                                            style="background: #105652;font-size:.8rem;"
+                                        >
                                             {{ detailOrder.status }}
-                                        </button>
-                                        <button v-else-if="detailOrder.status == 'expired'" class="btn btn-warning">
+                                        </span>
+                                        <span
+                                            v-else-if="detailOrder.status == 'expired'"
+                                            class="badge badge-pill font-weight-bolder text-uppercase p-2"
+                                            style="background:#FECD51;font-size:.8rem;"
+                                        >
                                             {{ detailOrder.status }}
-                                        </button>
-                                        <button v-else-if="detailOrder.status == 'failed'" class="btn btn-danger">
+                                        </span>
+                                        <span
+                                            v-else-if="detailOrder.status == 'failed'"
+                                            class="badge badge-pill text-white font-weight-bolder text-uppercase p-2"
+                                            style="background: #911F27;font-size:.8rem;"
+                                        >
                                             {{ detailOrder.status }}
-                                        </button>
+                                        </span>
                                     </td>
                                 </tr>
                             </table>
@@ -109,24 +112,51 @@
                     </div>
                 </div>
 
-                <div class="card border-0 rounded shadow mt-4">
-                    <div class="card-body">
-                        <h5><i class="fa fa-shopping-cart"></i> DETAIL ITEM</h5>
-                        <hr />
-                        <div class="row pb-3" v-for="product in productInOrder" :key="product.id">
-                            <div class="col-4">
-                                <div class="wrapper-image-cart">
-                                    <img :src="product.image" style="width: 100%;border-radius: .5rem" />
+                <div class="row mt-4">
+                    <div v-if="detailOrder.status == 'success'" class="col-md-4 mb-4">
+                        <div class="card border-0 rounded shadow">
+                            <div class="card-body">
+                                <h5><i class="fa fa-truck"></i> RESI PENGIRIMAN</h5>
+                                <hr />
+                                <div v-if="detailOrder.shipping_receipt == null" class="pb-3">
+                                    Pantau secara berkala untuk informasi mengenai nomor resi.
+                                </div>
+                                <div v-else>
+                                    <h2 class="font-weight-bolder text-uppercase">{{ detailOrder.courier }}</h2>
+                                    <h6>Service {{ detailOrder.service }}</h6>
+                                    <h6>
+                                        Nomor resi Anda: <strong>{{ detailOrder.shipping_receipt }}</strong>
+                                    </h6>
                                 </div>
                             </div>
-                            <div class="col-8">
-                                <h5>
-                                    <b style="font-size: 1.1rem">
-                                        {{ product.product_name }}
-                                    </b>
-                                </h5>
-                                <p class="m-0" style="font-size: 1rem">Rp. {{ moneyFormat(product.price) }}</p>
-                                <p class="m-0" style="font-size: 1rem">Jumlah : {{ product.qty }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="card border-0 rounded shadow">
+                            <div class="card-body">
+                                <h5><i class="fa fa-shopping-cart"></i> DETAIL ITEM</h5>
+                                <hr />
+                                <div class="row pb-3" v-for="product in productInOrder" :key="product.id">
+                                    <div class="col-4">
+                                        <div class="wrapper-image-cart">
+                                            <img :src="product.image" style="width: 100%;border-radius: .5rem" />
+                                        </div>
+                                    </div>
+                                    <div class="col-8">
+                                        <h5>
+                                            <b style="font-size: 1.1rem">
+                                                {{ product.product_name }}
+                                            </b>
+                                        </h5>
+                                        <p class="m-0" style="font-size: 1rem">Rp. {{ moneyFormat(product.price) }}</p>
+                                        <p class="m-0" style="font-size: 1rem">Jumlah : {{ product.qty }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="alert alert-success "><strong>Catatan Pesanan :</strong> {{ detailOrder.product_message }}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
